@@ -24,39 +24,38 @@ remote_connection.send("terminal length 0\n")
 remote_connection.send("configure terminal\n")
 
 #configure vrf
-#print "Creating VRF"
-#for i in range (1,8001):
-#    print "Creating IVRF-Site%d" % (i)
-#    remote_connection.send("vrf definition IVRF-Site%d\n" % (i))
-#    remote_connection.send("address-family ipv4\n")
-#    remote_connection.send("exit-address-family\n")
-#    remote_connection.send("address-family ipv6\n")
-#    remote_connection.send("exit-address-family\n")
-    #remote_connection.send("exit\n")
-#    time.sleep(1)
-#remote_connection.send("exit\n")
-#print "********************************************************************"
-#print "Creation of VRF successful"
-#print "********************************************************************"
+print "Creating VRF"
+for i in range (1,8001):
+    print "Creating IVRF-Site%d" % (i)
+    remote_connection.send("vrf definition IVRF-Site%d\n" % (i))
+    remote_connection.send("address-family ipv4\n")
+    remote_connection.send("exit-address-family\n")
+    remote_connection.send("address-family ipv6\n")
+    remote_connection.send("exit-address-family\n")
+    remote_connection.send("exit\n")
+    time.sleep(1)
+remote_connection.send("exit\n")
+print "********************************************************************"
+print "Creation of VRF successful"
+print "********************************************************************"
 
 #configure BDI
-#print "Creating BDI Interfaces"
-#for i in range (1,8001):
-#for i in range (2985,8001):
-#    print "Creating BDI Interface%d" % (i)
-#    remote_connection.send("Interface BDI%d\n" % (i))
-#    remote_connection.send("bandwidth 10000\n")
-#    remote_connection.send("vrf forwarding IVRF-Site%d\n" % (i))
-#    time.sleep(1)
-#print "********************************************************************"
-#print "Creation of BDI successful"
-#print "********************************************************************"
+print "Creating BDI Interfaces"
+for i in range (1,8001):
+for i in range (2985,8001):
+    print "Creating BDI Interface%d" % (i)
+    remote_connection.send("Interface BDI%d\n" % (i))
+    remote_connection.send("bandwidth 10000\n")
+    remote_connection.send("vrf forwarding IVRF-Site%d\n" % (i))
+    time.sleep(1)
+print "********************************************************************"
+print "Creation of BDI successful"
+print "********************************************************************"
 
 #configure NVE
 print "Creating NVE Interfaces"
 remote_connection.send("Interface nve1\n")
-#for i in range (101001,108001):
-for i in range (104523,108001):
+for i in range (101001,108001):
     print "Creating NVE Interface%d" % (i)
     remote_connection.send("member vni %d\n" % (i))
     remote_connection.send("bandwidth 10000\n")

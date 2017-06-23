@@ -58,6 +58,63 @@ for i in range (3001,4001):
 print "******************************************"
 print "removal of certificate CMAP successful"
 print "******************************************"
+
+
+#removing VNI
+print "Removing VNI's"
+for i in range (100001,100101):
+    remote_connection.send("no member vni %d\n" % (i))
+    time.sleep(.5)
+for i in range (101001,101101):
+    remote_connection.send("no member vni %d\n" % (i))
+    time.sleep(.5)
+for i in range (102001,102101):
+    remote_connection.send("no member vni %d\n" % (i))
+    time.sleep(.5)
+for i in range (103001,104001):
+    remote_connection.send("no member vni %d\n" % (i))
+    time.sleep(.5)
+print "*******************************************************************"
+print "removal of VNI successful"
+print "*******************************************************************"
+
+#removing Bridge Domain's
+print "Removing Bridge Domains"
+for i in range (1,101):
+    remote_connection.send("bridge-domain %d\n" % (i))
+    time.sleep(.5)
+for i in range (1001,1101):
+    remote_connection.send("bridge-domain %d\n" % (i))
+    time.sleep(.5)
+for i in range (2001,2101):
+    remote_connection.send("bridge-domain %d\n" % (i))
+    time.sleep(.5)
+for i in range (3001,4001):
+    remote_connection.send("bridge-domain %d\n" % (i))
+    time.sleep(.5)
+print "*******************************************************************"
+print "removal of Bridge Domain successful"
+print "*******************************************************************"
+
+#removing VRF's
+print "Removing VRF's"
+for i in range (1,101):
+    remote_connection.send("no vrf definition IVRF-SITE%d\n" % (i))
+    time.sleep(.5)
+for i in range (1001,1101):
+    remote_connection.send("no vrf definition vrf definition IVRF-SITE%d\n" % (i))
+    time.sleep(.5)
+for i in range (2001,2101):
+    remote_connection.send("no vrf definition vrf definition IVRF-SITE%d\n" % (i))
+    time.sleep(.5)
+for i in range (3001,4001):
+    remote_connection.send("no vrf definition vrf definition IVRF-SITE%d\n" % (i))
+    time.sleep(.5)
+print "*******************************************************************"
+print "removal of VRF successful"
+print "*******************************************************************"
+
+
 remote_connection.send("exit\n")
 
 time.sleep(1)

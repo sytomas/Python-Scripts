@@ -3,7 +3,8 @@ import telnetlib
 import time
 #Start the timer
 #Host to connect to
-HOST = "172.26.37.203"
+#HOST = "172.26.37.203"
+HOST = raw_input(" Please enter IP address: ")
 tn = telnetlib.Telnet(HOST)
 a=tn.read_until("#")
 print "time,ikev2_SA,ipsec_SA,cpu,CACincomingSA"

@@ -10,6 +10,7 @@ capeverde = "172.26.37.170"
 capeverdeinterface = "Te0/0/0"
 username = "admin"
 password = "cisco123"
+addint = int(10)
 
 
 
@@ -42,6 +43,9 @@ remote_connection.send("interface Te0/0/0\n")
 time.sleep(.75)
 remote_connection.send(str(g) + "\n")
 print (g, "ing sub-interfaces - 10 @ a time:")
+for i in range(1,91):
+    intadd = ((%x + 10) % (i))
+    remote_connection.send("interface range Te0/0/0.%d - Te0/0/0.", intadd "\n" % (i))
 remote_connection.send("interface range Te0/0/0.1 - Te0/0/0.10\n")
 time.sleep(.75)
 remote_connection.send(str(g) + "\n")

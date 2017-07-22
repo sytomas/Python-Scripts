@@ -42,10 +42,32 @@ def userselect():
         print "******************************************"  
     remote_connection.send("exit\n")
 
+def cryptoclear():
+    print "******************************************"
+    print "clearing crypto ike sessions             *"
+    print "******************************************"
+    remote_connection.send("terminal length 0\n")
+    remote_connection.send("clear crypto session\n")
+    time.sleep(3)
+    print "crypto sessions cleared"
+    remote_connection.send("exit\n")
+
+print "******************************************"
+print "* Select the following options:          *"
+print "*    - clean configuration       = a     *"
+print "*    - clear IKE crypto sessions = b     *"
+print "******************************************"
+print " " 
+choice = raw_input("Please select what you would like to do: ")
+
+if choice == "a":
+    userselect()
+elif choice == "b":
+    cryptoclear()
+else:
+    print "invalid selection"
+
 time.sleep(1)
 output = remote_connection.recv(99999)
 print output
-
-userselect()
-
 ssh_client.close

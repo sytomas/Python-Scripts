@@ -56,13 +56,13 @@ remote_connection.send("enable\n")
 remote_connection.send("cisco123\n")
 remote_connection.send("terminal length 0\n")
 remote_connection.send("configure terminal\n")
-#print "*******************************************************************"
-#print "Clearing Crypto Ike Sessions"
-#print "*******************************************************************"
-#print " "
-#remote_connection.send("do clear cryp sess\n")
-#time.sleep(2)
-#print "*******************************************************************"
+print "*******************************************************************"
+print "Clearing Crypto Ike Sessions"
+print "*******************************************************************"
+print " "
+remote_connection.send("do clear cryp sess\n")
+time.sleep(2)
+print "*******************************************************************"
 print "physical interface %s on cape verde will be %s" % (h,g)
 print "*******************************************************************"
 print " "
